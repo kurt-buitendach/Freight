@@ -1,0 +1,377 @@
+/**
+ * Modern Enhancements - 2026 Design Trends
+ * Curved corners, subtle shadows, smooth transitions
+ * Non-destructive enhancements only
+ */
+
+/* ============================================
+   CSS Custom Properties - Design Tokens
+   ============================================ */
+:root {
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-pill: 50px;
+
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    --transition-base: 0.3s ease;
+}
+
+/* ============================================
+   Smooth Scroll
+   ============================================ */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ============================================
+   Buttons - Rounded Pill Style
+   ============================================ */
+.btn {
+    border-radius: var(--radius-pill) !important;
+    transition: all var(--transition-base) !important;
+}
+
+.btn-primary {
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb, 255, 72, 0), 0.3) !important;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb, 255, 72, 0), 0.4) !important;
+}
+
+.btn-outline-light {
+    border-width: 2px !important;
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-2px);
+}
+
+/* Social buttons in footer */
+.btn-social {
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-base) !important;
+}
+
+.btn-social:hover {
+    transform: translateY(-3px);
+}
+
+/* ============================================
+   Navbar - Clean Modern Look (65% height)
+   ============================================ */
+.navbar {
+    box-shadow: var(--shadow-sm) !important;
+    padding-top: 0.3rem !important;
+    padding-bottom: 0.3rem !important;
+}
+
+.navbar-brand h1 {
+    font-size: 1.4rem !important;
+}
+
+.navbar-nav .nav-link {
+    padding-top: 0.6rem !important;
+    padding-bottom: 0.6rem !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all var(--transition-base) !important;
+}
+
+@media (min-width: 992px) {
+    .navbar-nav .nav-link {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+}
+
+/* ============================================
+   Hero Section (Jumbotron)
+   ============================================ */
+.jumbotron {
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl) !important;
+}
+
+/* Reduced height header - 65% of original */
+.jumbotron .container {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+}
+
+.jumbotron h1.display-3 {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
+.jumbotron h1:first-child {
+    margin-bottom: 0.5rem !important;
+}
+
+@media (min-width: 768px) {
+    .jumbotron .container {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .jumbotron h1.display-3 {
+        font-size: 3rem !important;
+    }
+}
+
+/* ============================================
+   Service Card Headers - Rounded
+   ============================================ */
+.d-flex.align-items-center.justify-content-center.bg-primary.mb-4.p-4 {
+    border-radius: var(--radius-md) !important;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb, 255, 72, 0), 0.25) !important;
+}
+
+/* Service card hover effect */
+.col-lg-3.col-md-6.text-center.mb-5 {
+    transition: transform var(--transition-base);
+}
+
+.col-lg-3.col-md-6.text-center.mb-5:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================
+   Contact Info Icon Boxes - Rounded
+   ============================================ */
+.d-flex.align-items-center.justify-content-center.bg-primary.mr-3[style*="60px"] {
+    border-radius: var(--radius-md) !important;
+}
+
+/* ============================================
+   About Section Experience Badge
+   ============================================ */
+/* Image above the experience badge - flat bottom corners */
+.col-lg-5.pb-4.pb-lg-0 > .img-fluid {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+}
+
+/* The experience badge itself - flat top, rounded bottom */
+.col-lg-5.pb-4.pb-lg-0 > .bg-primary.text-center.p-4 {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+}
+
+/* ============================================
+   Map Section Header
+   ============================================ */
+.col-lg-6 > .bg-primary.text-dark.text-center.p-4 {
+    border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+}
+
+/* ============================================
+   Map iframe - Rounded Bottom
+   ============================================ */
+iframe[src*="google.com/maps"] {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+}
+
+/* ============================================
+   Images - Soft Corners
+   ============================================ */
+.img-fluid {
+    border-radius: var(--radius-lg) !important;
+    transition: transform var(--transition-base), box-shadow var(--transition-base) !important;
+}
+
+.img-fluid:hover {
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* ============================================
+   Features Section (bg-secondary)
+   ============================================ */
+.container-fluid.bg-secondary {
+    border-radius: var(--radius-xl) !important;
+}
+
+/* Feature list hover */
+.list-inline li {
+    transition: transform var(--transition-base);
+}
+
+.list-inline li:hover {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   Blog Cards
+   ============================================ */
+.position-relative.mb-4 > img {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+}
+
+.position-relative.mb-4 .bg-white {
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+}
+
+/* Blog date circle - keep circular */
+.position-absolute.bg-primary.rounded-circle {
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb, 255, 72, 0), 0.3) !important;
+}
+
+/* ============================================
+   Back to Top Button
+   ============================================ */
+.back-to-top {
+    border-radius: var(--radius-md) !important;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb, 255, 72, 0), 0.3) !important;
+    transition: all var(--transition-base) !important;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(var(--primary-rgb, 255, 72, 0), 0.4) !important;
+}
+
+/* ============================================
+   Footer Links - Subtle Hover
+   ============================================ */
+.bg-dark .d-flex.flex-column a {
+    transition: transform var(--transition-base), color var(--transition-base) !important;
+}
+
+.bg-dark .d-flex.flex-column a:hover {
+    transform: translateX(5px);
+}
+
+/* ============================================
+   Selection Styling
+   ============================================ */
+::selection {
+    background: rgba(var(--primary-rgb, 255, 72, 0), 0.2);
+}
+
+/* ============================================
+   Mobile Navbar Toggler - Modern Hamburger
+   ============================================ */
+.navbar-toggler {
+    border: none !important;
+    padding: 0 !important;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md) !important;
+    background: var(--primary, #FF4800) !important;
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb, 255, 72, 0), 0.3) !important;
+    transition: all var(--transition-base) !important;
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: 0 4px 16px rgba(var(--primary-rgb, 255, 72, 0), 0.4) !important;
+}
+
+.navbar-toggler:hover {
+    transform: scale(1.05);
+}
+
+.navbar-toggler-icon {
+    background-image: none !important;
+    width: 22px;
+    height: 2px;
+    background-color: #fff !important;
+    display: block;
+    position: relative;
+    transition: all var(--transition-base) !important;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    background-color: #fff;
+    left: 0;
+    transition: all var(--transition-base);
+}
+
+.navbar-toggler-icon::before {
+    top: -7px;
+}
+
+.navbar-toggler-icon::after {
+    top: 7px;
+}
+
+/* Animated X when open */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+    background-color: transparent !important;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* ============================================
+   Mobile CTA Buttons - Hero Section
+   ============================================ */
+@media (max-width: 576px) {
+    .jumbotron .btn {
+        display: block !important;
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        padding: 1rem 2rem !important;
+    }
+
+    .jumbotron .btn:last-child {
+        margin-bottom: 0 !important;
+    }
+
+    .jumbotron .btn.ml-2 {
+        margin-left: 0 !important;
+    }
+}
+
+/* ============================================
+   Mobile Adjustments
+   ============================================ */
+@media (max-width: 768px) {
+    .jumbotron {
+        border-radius: 0 0 var(--radius-lg) var(--radius-lg) !important;
+    }
+
+    .col-lg-3.col-md-6.text-center.mb-5:hover {
+        transform: none;
+    }
+
+    .img-fluid:hover {
+        transform: none;
+    }
+
+    /* Mobile nav menu styling */
+    .navbar-collapse {
+        background: #fff;
+        border-radius: var(--radius-md);
+        margin-top: 0.5rem;
+        padding: 1rem;
+        box-shadow: var(--shadow-md);
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1rem !important;
+        margin-bottom: 0.25rem;
+    }
+
+    .navbar-nav .nav-link:last-child {
+        margin-bottom: 0;
+    }
+}

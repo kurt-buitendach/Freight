@@ -416,8 +416,9 @@ function initHeroToggle() {
     const heroToggle = document.getElementById('hero-toggle');
     if (!heroToggle) return;
 
-    // Load saved preference
-    const heroImageEnabled = localStorage.getItem('hexagon-hero-image') === 'true';
+    // Load saved preference (default to true if not set)
+    const savedPref = localStorage.getItem('hexagon-hero-image');
+    const heroImageEnabled = savedPref === null ? true : savedPref === 'true';
     updateHeroBackground(heroImageEnabled);
     updateHeroToggleUI(heroImageEnabled);
 

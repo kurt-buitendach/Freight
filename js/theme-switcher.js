@@ -81,11 +81,10 @@ function applyTheme(themeName) {
 
 // Apply theme colors to all relevant elements
 function applyToElements(theme) {
-    // Primary background elements
+    // Primary background elements (jumbotron handled separately by hero toggle)
     const bgPrimarySelectors = [
         '.bg-primary',
         '.btn-primary',
-        '.jumbotron',
         '.back-to-top'
     ];
 
@@ -225,10 +224,15 @@ function updateDynamicCSS(theme) {
             color: #fff !important;
         }
 
-        /* Jumbotron */
-        .jumbotron {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                        url('../img/carousel-1.jpg') center center no-repeat !important;
+        /* Jumbotron - solid color (default) */
+        .jumbotron:not(.hero-image) {
+            background-color: ${theme.dark} !important;
+        }
+
+        /* Jumbotron - with hero image */
+        .jumbotron.hero-image {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                        url('img/hero.png') center center no-repeat !important;
             background-size: cover !important;
         }
 
@@ -405,4 +409,69 @@ if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initThemeSwitcher);
 } else {
     initThemeSwitcher();
+}
+
+// Hero Background Toggle
+function initHeroToggle() {
+    const heroToggle = document.getElementById('hero-toggle');
+    if (!heroToggle) return;
+
+    // Load saved preference
+    const heroImageEnabled = localStorage.getItem('hexagon-hero-image') === 'true';
+    updateHeroBackground(heroImageEnabled);
+    updateHeroToggleUI(heroImageEnabled);
+
+    // Add click handler
+    heroToggle.addEventListener('click', () => {
+        const isEnabled = heroToggle.classList.contains('active');
+        const newState = !isEnabled;
+        updateHeroBackground(newState);
+        updateHeroToggleUI(newState);
+        localStorage.setItem('hexagon-hero-image', newState);
+    });
+}
+
+function updateHeroBackground(enabled) {
+    const jumbotrons = document.querySelectorAll('.jumbotron');
+    const savedTheme = localStorage.getItem('hexagon-theme') || 'default';
+    const theme = themes[savedTheme] || themes.default;
+
+    jumbotrons.forEach(jumbotron => {
+        if (enabled) {
+            jumbotron.classList.add('hero-image');
+            jumbotron.style.removeProperty('background-color');
+            jumbotron.style.removeProperty('background');
+        } else {
+            jumbotron.classList.remove('hero-image');
+            jumbotron.style.setProperty('background-color', theme.dark, 'important');
+        }
+    });
+}
+
+function updateHeroToggleUI(enabled) {
+    const heroToggle = document.getElementById('hero-toggle');
+    if (!heroToggle) return;
+
+    const icon = heroToggle.querySelector('i');
+
+    if (enabled) {
+        heroToggle.classList.add('active');
+        if (icon) {
+            icon.classList.remove('fa-toggle-off');
+            icon.classList.add('fa-toggle-on');
+        }
+    } else {
+        heroToggle.classList.remove('active');
+        if (icon) {
+            icon.classList.remove('fa-toggle-on');
+            icon.classList.add('fa-toggle-off');
+        }
+    }
+}
+
+// Initialize hero toggle on load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroToggle);
+} else {
+    initHeroToggle();
 }

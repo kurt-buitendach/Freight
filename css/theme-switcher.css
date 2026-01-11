@@ -249,3 +249,72 @@
     display: block;
     opacity: 1;
 }
+
+/* Hero Toggle Section */
+.hero-toggle-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.hero-toggle-section h5 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #888;
+    margin-bottom: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hero-toggle-section h5 i {
+    color: var(--primary);
+    font-size: 14px;
+}
+
+.hero-toggle-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f8f8;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-toggle-btn:hover {
+    border-color: #ddd;
+    background: #f0f0f0;
+}
+
+.hero-toggle-btn.active {
+    border-color: var(--primary);
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--primary-rgb), 0.1) 100%);
+}
+
+.hero-toggle-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+.hero-toggle-btn i {
+    font-size: 20px;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.hero-toggle-btn.active i {
+    color: var(--primary);
+}
+
+/* Hero Image Background Class */
+.jumbotron.hero-image {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/hero.png') center center no-repeat !important;
+    background-size: cover !important;
+}
